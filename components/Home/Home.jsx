@@ -20,7 +20,7 @@ export default function Home() {
       </nav>
 
       <div className="relative w-full flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-        <div className="absolute top-[-95px] left-[-62px] -rotate-12 overflow-hidden w-[140px] h-[140px] md:block hidden z-[1]">
+        {/* <div className="absolute top-[-95px] left-[-62px] -rotate-12 overflow-hidden w-[140px] h-[140px] md:block hidden z-[1]">
           <Image
             className=""
             src="/assets/love-message.png"
@@ -28,7 +28,7 @@ export default function Home() {
             width={360}
             height={360}
           />
-        </div>
+        </div> */}
 
         <h1 className="bg-[#ffffff] rounded-tl-[12%] flex flex-col text-3xl font-semibold leading-10 tracking-tight z-[2]">
           <span>Create,</span> <span>customize, &</span> share invitations.
