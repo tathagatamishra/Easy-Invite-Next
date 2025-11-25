@@ -1,14 +1,51 @@
 /* app/global.css */
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap');
+
+.alan-sans-normal {
+  font-family: "Alan Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 
 * {
+  font-family: "Alan Sans", sans-serif;
+}
+
+html {
   padding: 0%;
   margin: 0%;
-  border: none;
-  outline: none;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 body {
+  padding: 0%;
+  margin: 0%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
   color: #000;
-  font-family: Arial, Helvetica, sans-serif;
 }
+
+h1 {
+  letter-spacing: -.05em;
+  font-size: max(42px, min(5vw, 76px));
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 0 10px 10px #ffffff;
+}
+
+p {
+  font-size: max(15px, min(2vw, 20px));
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+div {}
