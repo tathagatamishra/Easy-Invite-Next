@@ -40,7 +40,7 @@ export default function Dashboard() {
             }}
           />
 
-          <div className="w-full h-full flex flex-col gap-4">
+          <div className="w-full h-full flex flex-col gap-4 overflow-y-auto">
             <SimpleBtn
               text="Event 1"
               theme="light"
