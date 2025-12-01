@@ -7,11 +7,15 @@ export default function SimpleBtn({
   text = "Click Here",
   cssClass = "simpleBtn",
   fontstyle = "",
-  size = "h-12 w-full sm:w-[158px] min-w-fit",
+  height = "h-12 min-h-12",
+  width = "w-full sm:w-[158px] min-w-fit",
+  size = "",
   padding = "px-5",
   border = "",
-  className = "rounded-full flex items-center justify-center gap-2 transition-colors cursor-pointer",
-  theme = "light",
+  backgroundImage = "none",
+  className = "rounded-full flex items-center justify-center gap-2 transition-colors overflow-hidden cursor-pointer",
+  tailwind = "",
+  theme = "",
   darkTheme = "bg-[#171717] text-[#ffffff] active:bg-[#383838]",
   lightTheme = "border border-solid border-black/[.08] active:border-transparent active:bg-black/[.04]",
   value = "",
@@ -41,8 +45,12 @@ export default function SimpleBtn({
       }}
       style={{
         border: `${border}`,
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
       }}
-      className={`${cssClass} ${className} ${padding} ${size} ${fontstyle} 
+      className={`${cssClass} ${className} ${tailwind} ${padding} ${height} ${width} ${size} ${fontstyle} 
         ${disabled && "Disabled"} 
         ${theme == "dark" && darkTheme} 
         ${theme == "light" && lightTheme}`}

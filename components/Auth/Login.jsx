@@ -33,7 +33,8 @@ export default function Login() {
 
         <SimpleBtn
           text="Sign up"
-          size="h-12 w-fit sm:w-[158px] min-w-fit"
+          theme="light"
+          width="w-fit sm:w-[158px] min-w-fit"
           navigateTo="/signup"
         />
       </nav>
@@ -64,25 +65,25 @@ export default function Login() {
             logo="/google.png"
             text="Continue with Google"
             theme="light"
-            size="h-12 w-full"
+            width="w-full"
             onClick={() => {}}
           />
           <SimpleBtn
             logo="/meta.png"
             text="Continue with Meta"
             theme="light"
-            size="h-12 w-full"
+            width="w-full"
             onClick={() => {}}
           />
           <SimpleBtn
             logo="/linkedin.png"
             text="Continue with Linkedin"
             theme="light"
-            size="h-12 w-full"
+            width="w-full"
             onClick={() => {}}
           />
 
-          <div className="relative w-[90%] my-4 flex flex-col items-center justify-center">
+          <div className="relative w-[90%] my-6 flex flex-col items-center justify-center">
             <span className="w-full z-0 border-t border-black/[.08]"></span>
             <span className="absolute z-1 px-2 text-[#666] bg-white">or</span>
           </div>
@@ -97,8 +98,9 @@ export default function Login() {
           <SimpleBtn
             text="Log in"
             theme="dark"
-            size="h-12 w-full"
+            width="w-full"
             onClick={() => {}}
+            navigateTo="/dashboard"
           />
         </div>
       </div>

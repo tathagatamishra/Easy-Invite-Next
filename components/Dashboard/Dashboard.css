@@ -1,0 +1,9 @@
+.box {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scrollbar-width: none;
+    background: #fff;
+    box-shadow: rgba(55, 65, 81, 0.1) 0px 6px 16px;
+}

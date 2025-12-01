@@ -28,7 +28,8 @@ export default function Home() {
 
         <SimpleBtn
           text="Log in"
-          size="h-12 w-fit sm:w-[158px] min-w-fit"
+          theme="light"
+          width="w-fit sm:w-[158px] min-w-fit"
           navigateTo="/login"
         />
       </nav>
@@ -72,8 +73,9 @@ export default function Home() {
           onClick={() => {
             console.log("clicked");
           }}
+          navigateTo="/dashboard"
         />
-        <SimpleBtn text="Sign up" navigateTo="/signup" />
+        <SimpleBtn text="Sign up" navigateTo="/signup" theme="light" />
       </div>
     </main>
   );
