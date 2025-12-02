@@ -1,19 +1,19 @@
-// components/UI/Buttons/SimpleBtn.jsx
+// components/UI/Cards/SimpleCard.jsx
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import "./SimpleBtn.css";
+import "./SimpleCard.css";
 
-export default function SimpleBtn({
+export default function SimpleCard({
   text = "Click Here",
   cssClass = "simpleBtn",
   fontstyle = "",
-  height = "h-12 min-h-12",
-  width = "w-full sm:w-[158px] min-w-fit",
+  height = "h-[158px] max-h-[158px]",
+  width = "w-[158px] max-w-[158px]",
   size = "",
   padding = "px-5",
   border = "",
   backgroundImage = "none",
-  className = "rounded-full flex items-center justify-center gap-2 transition-colors overflow-hidden cursor-pointer",
+  className = "relative rounded-2xl flex items-center justify-center gap-2 transition-colors overflow-hidden cursor-pointer",
   tailwind = "",
   theme = "",
   darkTheme = "bg-[#171717] text-[#ffffff] active:bg-[#383838]",
@@ -26,6 +26,7 @@ export default function SimpleBtn({
   onClick = false,
   navigateTo = false,
   disabled = false,
+  bgImage = false,
 }) {
   const router = useRouter();
 
@@ -51,13 +52,22 @@ export default function SimpleBtn({
         backgroundPosition: "center",
       }}
       className={`${cssClass} ${className} ${tailwind} ${padding} ${height} ${width} ${size} ${fontstyle} 
-        ${disabled && "Disabled"} 
-        ${theme == "dark" && darkTheme} 
-        ${theme == "light" && lightTheme}`}
+          ${disabled && "Disabled"} 
+          ${theme == "dark" && darkTheme} 
+          ${theme == "light" && lightTheme}`}
     >
       {icon && icon}
       {logo && (
         <Image className="" src={logo} alt="logo" width={16} height={16} />
+      )}
+      {bgImage && (
+        <Image
+          className="absolute z-0 mx-auto h-full w-full object-cover"
+          src={bgImage}
+          alt="bg"
+          width={480}
+          height={480}
+        />
       )}
       {text}
     </button>

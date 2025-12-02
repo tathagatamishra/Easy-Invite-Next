@@ -1,0 +1,121 @@
+{
+    "userCards": [
+        {
+            "cardId": "USER1_CARD_001",
+            "imageUrl": "https://cdn.pixabay.com/photo/2020/10/07/17/12/balloons-5635766_1280.png",
+            "cardTitle": "Birthday Celebration Balloons",
+            "description": "Personal birthday invitation card with colorful balloons.",
+            "owner": "6510a1b2c3d4e5f678901234",
+            "metadata": {
+                "type": "personal",
+                "visibility": "owner",
+                "category": "birthday",
+                "createdBy": "user"
+            }
+        },
+        {
+            "cardId": "USER1_CARD_002",
+            "imageUrl": "https://cdn.pixabay.com/photo/2022/05/04/21/35/mum-7174835_1280.png",
+            "cardTitle": "Mother's Day Card",
+            "description": "Personal Mother's Day greeting / invite card.",
+            "owner": "6510a1b2c3d4e5f678901234",
+            "metadata": {
+                "type": "personal",
+                "visibility": "owner",
+                "category": "mothers_day",
+                "createdBy": "user"
+            }
+        },
+        {
+            "cardId": "USER1_CARD_003",
+            "imageUrl": "https://cdn.pixabay.com/photo/2022/10/05/00/36/diwali-7499371_1280.png",
+            "cardTitle": "Diwali Lights Invite",
+            "description": "Personal Diwali party invitation card with lamps and lights.",
+            "owner": "6510a1b2c3d4e5f678901234",
+            "metadata": {
+                "type": "personal",
+                "visibility": "owner",
+                "category": "diwali",
+                "createdBy": "user"
+            }
+        },
+        {
+            "cardId": "USER1_CARD_004",
+            "imageUrl": "https://cdn.pixabay.com/photo/2021/10/27/02/12/diwali-banner-6745459_1280.png",
+            "cardTitle": "Diwali Banner Invite",
+            "description": "Personal Diwali celebration banner-style invitation.",
+            "owner": "6510a1b2c3d4e5f678901234",
+            "metadata": {
+                "type": "personal",
+                "visibility": "owner",
+                "category": "diwali",
+                "createdBy": "user"
+            }
+        },
+        {
+            "cardId": "USER1_CARD_005",
+            "imageUrl": "https://cdn.pixabay.com/photo/2021/11/14/20/33/christmas-6795647_1280.png",
+            "cardTitle": "Christmas Party Invite",
+            "description": "Personal Christmas party card with festive elements.",
+            "owner": "6510a1b2c3d4e5f678901234",
+            "metadata": {
+                "type": "personal",
+                "visibility": "owner",
+                "category": "christmas",
+                "createdBy": "user"
+            }
+        },
+        {
+            "cardId": "USER1_CARD_009",
+            "imageUrl": "https://cdn.pixabay.com/photo/2015/08/30/10/29/save-the-date-914055_1280.jpg",
+            "cardTitle": "Save The Date",
+            "description": "Personal save-the-date card for weddings or special events.",
+            "owner": "6510a1b2c3d4e5f678901234",
+            "metadata": {
+                "type": "personal",
+                "visibility": "owner",
+                "category": "save_the_date",
+                "createdBy": "user"
+            }
+        },
+        {
+            "cardId": "USER1_CARD_006",
+            "imageUrl": "https://cdn.pixabay.com/photo/2024/03/20/12/37/easter-8645460_1280.jpg",
+            "cardTitle": "Easter Celebration Card",
+            "description": "Personal Easter gathering invitation card.",
+            "owner": "6510a1b2c3d4e5f678901234",
+            "metadata": {
+                "type": "personal",
+                "visibility": "owner",
+                "category": "easter",
+                "createdBy": "user"
+            }
+        },
+        {
+            "cardId": "USER1_CARD_007",
+            "imageUrl": "https://cdn.pixabay.com/photo/2020/06/13/17/48/flower-5295148_1280.jpg",
+            "cardTitle": "Floral Invite",
+            "description": "Personal floral themed invitation card for general events.",
+            "owner": "6510a1b2c3d4e5f678901234",
+            "metadata": {
+                "type": "personal",
+                "visibility": "owner",
+                "category": "floral",
+                "createdBy": "user"
+            }
+        },
+        {
+            "cardId": "USER1_CARD_008",
+            "imageUrl": "https://cdn.pixabay.com/photo/2017/04/06/14/55/background-2208468_1280.jpg",
+            "cardTitle": "Elegant Minimal Background",
+            "description": "Personal minimalist background card for custom text invites.",
+            "owner": "6510a1b2c3d4e5f678901234",
+            "metadata": {
+                "type": "personal",
+                "visibility": "owner",
+                "category": "minimal",
+                "createdBy": "user"
+            }
+        }
+    ]
+}

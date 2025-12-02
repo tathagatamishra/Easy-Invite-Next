@@ -1,0 +1,511 @@
+{
+  "invitationCards": [
+    {
+      "cardId": "DEFAULT_CARD_001",
+      "imageUrl": "https://cdn.pixabay.com/photo/2018/05/20/11/40/floral-background-3415551_1280.jpg",
+      "cardTitle": "Default Floral Card 01",
+      "description": "System default public invitation card with floral theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "floral",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_002",
+      "imageUrl": "https://cdn.pixabay.com/photo/2019/08/14/16/32/flowers-4406170_1280.jpg",
+      "cardTitle": "Default Floral Card 02",
+      "description": "System default public invitation card with floral theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "floral",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_003",
+      "imageUrl": "https://cdn.pixabay.com/photo/2021/04/22/17/55/flowers-6199691_1280.png",
+      "cardTitle": "Default Floral Card 03",
+      "description": "System default public invitation card with floral theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "floral",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_004",
+      "imageUrl": "https://cdn.pixabay.com/photo/2020/03/05/12/48/spring-4904395_1280.jpg",
+      "cardTitle": "Default Floral Card 04",
+      "description": "System default public invitation card with floral theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "floral",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_005",
+      "imageUrl": "https://cdn.pixabay.com/photo/2022/04/17/07/33/frame-7137533_1280.png",
+      "cardTitle": "Default Frame Card 05",
+      "description": "System default public invitation card with frame theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "frame",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_006",
+      "imageUrl": "https://cdn.pixabay.com/photo/2020/02/06/01/52/frame-4822807_1280.png",
+      "cardTitle": "Default Frame Card 06",
+      "description": "System default public invitation card with frame theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "frame",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_007",
+      "imageUrl": "https://cdn.pixabay.com/photo/2024/01/16/09/24/ai-generated-8511706_1280.png",
+      "cardTitle": "Default Ai Generated Card 07",
+      "description": "System default public invitation card with ai generated theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "ai_generated",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_008",
+      "imageUrl": "https://cdn.pixabay.com/photo/2018/04/16/14/15/flower-3324769_1280.jpg",
+      "cardTitle": "Default Floral Card 08",
+      "description": "System default public invitation card with floral theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "floral",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_009",
+      "imageUrl": "https://cdn.pixabay.com/photo/2021/04/22/17/56/flowers-6199699_1280.png",
+      "cardTitle": "Default Floral Card 09",
+      "description": "System default public invitation card with floral theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "floral",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_010",
+      "imageUrl": "https://cdn.pixabay.com/photo/2022/10/10/14/13/lotus-7511897_1280.jpg",
+      "cardTitle": "Default Floral Card 10",
+      "description": "System default public invitation card with floral theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "floral",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_011",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/02/09/21/52/floral-frame-7779662_1280.jpg",
+      "cardTitle": "Default Floral Card 11",
+      "description": "System default public invitation card with floral theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "floral",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_012",
+      "imageUrl": "https://cdn.pixabay.com/photo/2018/05/18/13/40/flower-3411223_1280.jpg",
+      "cardTitle": "Default Floral Card 12",
+      "description": "System default public invitation card with floral theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "floral",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_013",
+      "imageUrl": "https://cdn.pixabay.com/photo/2024/09/30/11/12/winter-9085577_1280.jpg",
+      "cardTitle": "Default Winter Card 13",
+      "description": "System default public invitation card with winter theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "winter",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_014",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/11/05/08/01/houses-8366470_1280.png",
+      "cardTitle": "Default Winter Card 14",
+      "description": "System default public invitation card with winter theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "winter",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_015",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/11/05/15/25/winter-8367632_1280.jpg",
+      "cardTitle": "Default Winter Card 15",
+      "description": "System default public invitation card with winter theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "winter",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_016",
+      "imageUrl": "https://cdn.pixabay.com/photo/2017/11/23/12/18/santa-claus-2972718_1280.png",
+      "cardTitle": "Default Christmas Card 16",
+      "description": "System default public invitation card with christmas theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "christmas",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_017",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/12/18/14/30/winter-8456170_1280.png",
+      "cardTitle": "Default Winter Card 17",
+      "description": "System default public invitation card with winter theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "winter",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_018",
+      "imageUrl": "https://cdn.pixabay.com/photo/2020/01/04/18/40/trees-4741364_1280.png",
+      "cardTitle": "Default Winter Card 18",
+      "description": "System default public invitation card with winter theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "winter",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_019",
+      "imageUrl": "https://cdn.pixabay.com/photo/2022/12/14/13/43/snow-7655439_1280.png",
+      "cardTitle": "Default Winter Card 19",
+      "description": "System default public invitation card with winter theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "winter",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_020",
+      "imageUrl": "https://cdn.pixabay.com/photo/2025/08/08/08/18/mock-up-9762189_1280.jpg",
+      "cardTitle": "Default Frame Card 20",
+      "description": "System default public invitation card with frame theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "frame",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_021",
+      "imageUrl": "https://cdn.pixabay.com/photo/2025/08/06/12/56/ai-generated-9758804_1280.jpg",
+      "cardTitle": "Default Ai Generated Card 21",
+      "description": "System default public invitation card with ai generated theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "ai_generated",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_022",
+      "imageUrl": "https://cdn.pixabay.com/photo/2024/01/14/21/44/snowman-8508881_1280.jpg",
+      "cardTitle": "Default Winter Card 22",
+      "description": "System default public invitation card with winter theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "winter",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_023",
+      "imageUrl": "https://cdn.pixabay.com/photo/2017/12/09/16/41/snowman-3008179_1280.jpg",
+      "cardTitle": "Default Winter Card 23",
+      "description": "System default public invitation card with winter theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "winter",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_024",
+      "imageUrl": "https://cdn.pixabay.com/photo/2018/06/01/07/04/shabby-chic-3445805_1280.jpg",
+      "cardTitle": "Default Floral Card 24",
+      "description": "System default public invitation card with floral theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "floral",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_025",
+      "imageUrl": "https://cdn.pixabay.com/photo/2024/05/20/22/46/frame-8776456_1280.jpg",
+      "cardTitle": "Default Frame Card 25",
+      "description": "System default public invitation card with frame theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "frame",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_026",
+      "imageUrl": "https://cdn.pixabay.com/photo/2017/12/21/21/57/christmas-3032661_1280.jpg",
+      "cardTitle": "Default Winter Card 26",
+      "description": "System default public invitation card with winter theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "winter",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_027",
+      "imageUrl": "https://cdn.pixabay.com/photo/2025/08/08/08/16/mock-up-9762185_1280.jpg",
+      "cardTitle": "Default Frame Card 27",
+      "description": "System default public invitation card with frame theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "frame",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_028",
+      "imageUrl": "https://cdn.pixabay.com/photo/2017/10/10/16/55/halloween-2837936_1280.png",
+      "cardTitle": "Default Halloween Card 28",
+      "description": "System default public invitation card with halloween theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "halloween",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_029",
+      "imageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png",
+      "cardTitle": "Default Easter Card 29",
+      "description": "System default public invitation card with easter theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "easter",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_030",
+      "imageUrl": "https://cdn.pixabay.com/photo/2018/12/18/21/52/new-years-eve-3883137_1280.png",
+      "cardTitle": "Default New Year Card 30",
+      "description": "System default public invitation card with new year theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "new_year",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_031",
+      "imageUrl": "https://cdn.pixabay.com/photo/2018/04/15/13/36/flower-3321738_1280.jpg",
+      "cardTitle": "Default Travel Card 31",
+      "description": "System default public invitation card with travel theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "travel",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_032",
+      "imageUrl": "https://cdn.pixabay.com/photo/2020/04/12/05/15/beach-5032789_1280.jpg",
+      "cardTitle": "Default Beach Card 32",
+      "description": "System default public invitation card with beach theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "beach",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_033",
+      "imageUrl": "https://cdn.pixabay.com/photo/2018/01/31/16/12/beach-3121393_1280.png",
+      "cardTitle": "Default Beach Card 33",
+      "description": "System default public invitation card with beach theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "beach",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_034",
+      "imageUrl": "https://cdn.pixabay.com/photo/2021/12/25/04/25/holiday-6892296_1280.jpg",
+      "cardTitle": "Default Holiday Card 34",
+      "description": "System default public invitation card with holiday theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "holiday",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_035",
+      "imageUrl": "https://cdn.pixabay.com/photo/2022/09/25/16/59/goddess-7478807_1280.jpg",
+      "cardTitle": "Default Indian Festival Card 35",
+      "description": "System default public invitation card with indian festival theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "indian_festival",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_036",
+      "imageUrl": "https://cdn.pixabay.com/photo/2022/10/04/06/26/candles-7497424_1280.jpg",
+      "cardTitle": "Default Indian Festival Card 36",
+      "description": "System default public invitation card with indian festival theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "indian_festival",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_037",
+      "imageUrl": "https://cdn.pixabay.com/photo/2019/07/22/06/49/festival-of-india-4354338_1280.jpg",
+      "cardTitle": "Default Indian Festival Card 37",
+      "description": "System default public invitation card with indian festival theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "indian_festival",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_038",
+      "imageUrl": "https://cdn.pixabay.com/photo/2019/07/22/06/39/festival-of-india-4354322_1280.jpg",
+      "cardTitle": "Default Indian Festival Card 38",
+      "description": "System default public invitation card with indian festival theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "indian_festival",
+        "createdBy": "system"
+      }
+    },
+    {
+      "cardId": "DEFAULT_CARD_039",
+      "imageUrl": "https://cdn.pixabay.com/photo/2024/10/21/16/17/ai-generated-9137711_1280.jpg",
+      "cardTitle": "Default Ai Generated Card 39",
+      "description": "System default public invitation card with ai generated theme.",
+      "owner": null,
+      "metadata": {
+        "type": "default",
+        "visibility": "public",
+        "category": "ai_generated",
+        "createdBy": "system"
+      }
+    }
+  ]
+}

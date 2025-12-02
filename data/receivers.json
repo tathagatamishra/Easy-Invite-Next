@@ -1,0 +1,56 @@
+{
+  "receivers": [
+    {
+      "_id": "6510b1b2c3d4e5f678901238",
+      "whatsappNumber": "+919999888777",
+      "fullName": "Sahana Roy",
+      "username": "sahana_roy",
+      "profileImage": "https://cdn.example.com/profiles/sahana.jpg",
+      "createdFromInvitation": true,
+      "convertedToSender": false,
+      "linkedSender": null,
+      "metadata": { "rsvp": "maybe" },
+      "createdAt": "2025-11-20T09:30:00.000Z",
+      "updatedAt": "2025-11-20T09:30:00.000Z"
+    },
+    {
+      "_id": "6510b1b2c3d4e5f678901239",
+      "whatsappNumber": "+919888777666",
+      "fullName": "Pranav Nair",
+      "username": "pranav_nair",
+      "profileImage": "https://cdn.example.com/profiles/pranav.jpg",
+      "createdFromInvitation": true,
+      "convertedToSender": true,
+      "linkedSender": "6510a1b2c3d4e5f678901237",
+      "metadata": { "notes": "Converted on acceptance" },
+      "createdAt": "2025-10-15T10:00:00.000Z",
+      "updatedAt": "2025-11-25T16:05:00.000Z"
+    },
+    {
+      "_id": "6510b1b2c3d4e5f678901240",
+      "whatsappNumber": "+14155550123",
+      "fullName": "Ethan Parker",
+      "username": "ethanp",
+      "profileImage": null,
+      "createdFromInvitation": false,
+      "convertedToSender": false,
+      "linkedSender": null,
+      "metadata": {},
+      "createdAt": "2025-06-22T18:20:00.000Z",
+      "updatedAt": "2025-06-22T18:20:00.000Z"
+    },
+    {
+      "_id": "6510b1b2c3d4e5f678901241",
+      "whatsappNumber": "+919777666555",
+      "fullName": "Rhea Das",
+      "username": null,
+      "profileImage": "https://cdn.example.com/profiles/rhea.jpg",
+      "createdFromInvitation": true,
+      "convertedToSender": false,
+      "linkedSender": null,
+      "metadata": { "diet": "vegetarian" },
+      "createdAt": "2025-11-25T12:00:00.000Z",
+      "updatedAt": "2025-11-25T12:00:00.000Z"
+    }
+  ]
+}
