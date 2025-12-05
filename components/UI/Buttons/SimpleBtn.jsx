@@ -7,10 +7,10 @@ export default function SimpleBtn({
   text = "Click Here",
   cssClass = "simpleBtn",
   fontstyle = "",
-  height = "h-12 min-h-12",
-  width = "w-full sm:w-[158px] min-w-fit",
+  height = "lg:h-12 lg:min-h-12 md:h-10 md:min-h-10 h-8 min-h-8",
+  width = "lg:w-[158px] w-full min-w-fit",
   size = "",
-  padding = "px-5",
+  padding = "lg:px-5 sm:px-3 px-2",
   border = "",
   backgroundImage = "none",
   className = "relative rounded-full flex items-center justify-center gap-2 transition-colors cursor-pointer",
@@ -27,7 +27,8 @@ export default function SimpleBtn({
   navigateTo = false,
   disabled = false,
   notify = false,
-  textStyle= "",
+  textStyle = "",
+  fontStyle = "lg:text-[16px] md:text-[14px] text-[12px]",
 }) {
   const router = useRouter();
 
@@ -59,13 +60,13 @@ export default function SimpleBtn({
         ${theme == "light" && lightTheme}`}
     >
       {notify && (
-        <div className="bg-[#ff2525] min-w-[10px] w-[10px] min-h-[10px] h-[10px] rounded-full absolute top-[2px] right-[2px]"></div>
+        <div className="bg-[#ff2525] md:min-w-[10px] min-w-[6px] md:w-[10px] w-[6px] md:min-h-[10px] min-h-[6px] md:h-[10px] h-[6px] rounded-full absolute top-0 right-0"></div>
       )}
       {icon && icon}
       {logo && (
         <Image className="" src={logo} alt="logo" width={16} height={16} />
       )}
-      <div className={`${textStyle}`}>{text}</div>
+      <div className={`${fontStyle} ${textStyle}`}>{text}</div>
     </button>
   );
 }

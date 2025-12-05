@@ -13,7 +13,7 @@ export default function MasonryLayout({
   items = [],
   calculateColumns,
   renderItem,
-  gap = 10,
+  columnGap,
   getItemHeight,
   defaultItemHeight = 180,
   containerClassName = "",
@@ -27,6 +27,7 @@ export default function MasonryLayout({
   // Using 1 avoids depending on `window` on first render.
   const [columns, setColumns] = useState(1);
   const [containerWidth, setContainerWidth] = useState(0);
+  const [colGap, setColGap] = useState(12);
 
   const handleResize = useCallback(() => {
     if (!containerRef.current) return;
@@ -43,16 +44,28 @@ export default function MasonryLayout({
     }
   }, [calculateColumns, columns]);
 
+  const handleColGap = useCallback(() => {
+    try {
+      const gap = typeof columnGap === "function" ? columnGap() : colGap;
+      setColGap(gap);
+    } catch {}
+  }, [columnGap, columns]);
+
   useEffect(() => {
     handleResize();
+    handleColGap();
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [handleResize]);
+    window.addEventListener("resize", handleColGap);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleColGap);
+    };
+  }, [handleResize, handleColGap]);
 
   const columnWidth = useMemo(() => {
     if (!containerWidth || columns <= 0) return 0;
-    return (containerWidth - gap * (columns - 1)) / columns;
-  }, [containerWidth, columns, gap]);
+    return (containerWidth - colGap * (columns - 1)) / columns;
+  }, [containerWidth, columns, colGap]);
 
   const columnsArray = useMemo(() => {
     const cols = Math.max(columns || 1, 1);
@@ -74,7 +87,7 @@ export default function MasonryLayout({
         }
         const shortestIndex = heights.indexOf(Math.min(...heights));
         columnArrays[shortestIndex].push({ item, idx, computedHeight: height });
-        heights[shortestIndex] += height + gap;
+        heights[shortestIndex] += height + colGap;
       });
     } else {
       items.forEach((item, idx) => {
@@ -84,17 +97,21 @@ export default function MasonryLayout({
     }
 
     return columnArrays;
-  }, [items, columns, columnWidth, getItemHeight, defaultItemHeight, gap]);
+  }, [items, columns, columnWidth, getItemHeight, defaultItemHeight, colGap]);
 
   return (
     <div
       ref={containerRef}
       className={`masonry ${containerClassName}`}
       // use numeric style for gap (keeps render stable)
-      style={{ gap }}
+      style={{ gap: colGap }}
     >
       {columnsArray.map((colItems, colIndex) => (
-        <div key={colIndex} className={`masonry-column ${columnClassName}`}>
+        <div
+          key={colIndex}
+          style={{ gap: colGap }}
+          className={`masonry-column ${columnClassName}`}
+        >
           {colItems.map(({ item, idx, computedHeight }) => {
             // Prefer stable item key
             const stableKey =

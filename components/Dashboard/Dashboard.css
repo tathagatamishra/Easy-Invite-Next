@@ -5,32 +5,45 @@
 
 .shadowDiv-t {
   box-shadow: 0px 0px 10px 10px #fff;
+  background: #fff;
 }
 
 .shadowDiv-b {
   box-shadow: 0px 0px 10px 10px #fff;
+  background: #fff;
 }
 
 .sidebar {
+  z-index: 30; /* 🔹 was 3, bumped so it's above the blur (z-[25]) */
   position: relative;
   width: 208px;
   min-width: 208px;
   padding-top: 16px;
   padding-bottom: 16px;
+  background: #fff;
+  transition: transform 0.3s ease-in-out;
 }
 
-@media (width <=860px) {
+@media (width <=768px) {
   .sidebar {
     position: absolute;
-    width: 0px;
-    min-width: 0px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    opacity: 10%;
+  }
+  
+  .sidebar.sidebar-open {
+    opacity: 100%;
+    transform: translateX(0);
   }
 }
 
 .topbar {
-
+  z-index: 2;
 }
 
 .maingrid {
-
+  z-index: 1;
 }

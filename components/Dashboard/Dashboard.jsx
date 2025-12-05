@@ -12,6 +12,7 @@ import {
   FiImage,
   FiBell,
   FiUserPlus,
+  FiMenu,
 } from "react-icons/fi";
 import invitationCardsData from "../../data/invitationCards.json";
 import userCardsData from "../../data/userCards.json";
@@ -25,27 +26,39 @@ export default function Dashboard() {
   const [invitationCards, setInvitationCards] = useState([]);
   const [userCards, setUserCards] = useState([]);
   const [maxCards, setMaxCards] = useState(8);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const calculateMaxCards = useCallback(() => {
     if (typeof window !== "undefined") {
       const width = window.innerWidth;
-      if (width <= 500) return 2;
-      if (width <= 810) return 4;
-      if (width <= 1080) return 6;
-      return 8;
+      if (width <= 640) return 4;
+      if (width <= 810) return 6;
+      if (width <= 1080) return 8;
+      return 10;
     }
-    return 8;
+    return 6;
   }, []);
 
   const calculateColumns = useCallback(() => {
     if (typeof window !== "undefined") {
       const width = window.innerWidth;
-      if (width <= 500) return 1;
-      if (width <= 810) return 2;
-      if (width <= 1080) return 3;
-      return 4;
+      if (width <= 640) return 2;
+      if (width <= 810) return 3;
+      if (width <= 1080) return 4;
+      return 5;
     }
-    return 4;
+    return 3;
+  }, []);
+
+  const calculateColGap = useCallback(() => {
+    if (typeof window !== "undefined") {
+      const width = window.innerWidth;
+      if (width <= 640) return 8;
+      if (width <= 810) return 12;
+      if (width <= 1080) return 16;
+      return 18;
+    }
+    return 12;
   }, []);
 
   useEffect(() => {
@@ -70,8 +83,12 @@ export default function Dashboard() {
   };
 
   return (
-    <main className="relative flex min-h-full w-full max-w-[1080px] flex-row items-center gap-6">
-      <section className="sidebar h-full flex flex-col items-center justify-between py-4 rounded-3xl border border-solid border-black/[.08] overflow-hidden">
+    <main className="relative flex min-h-full w-full max-w-[1080px] flex-row items-center lg:gap-6 md:gap-4 gap-2">
+      <section
+        className={`sidebar h-full flex flex-col items-center justify-between lg:py-4 py-3 rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden ${
+          isSidebarOpen ? "sidebar-open" : ""
+        }`}
+      >
         <Image
           className="mb-10"
           src="/text-1764000615754.png"
@@ -97,7 +114,7 @@ export default function Dashboard() {
         </div>
 
         <div className="shadowDiv-t w-full h-2 min-h-2 z-2"></div>
-        <div className="w-full h-full flex flex-col gap-4 px-4 py-4 overflow-y-auto z-1">
+        <div className="w-full h-full flex flex-col gap-4 lg:px-4 px-3 lg:py-4 py-3 overflow-y-auto z-1">
           {Array.from({ length: 10 }).map((_, index) => (
             <SimpleBtn
               key={index}
@@ -125,50 +142,70 @@ export default function Dashboard() {
         </div>
       </section>
 
-      <section className="w-full h-full flex flex-col gap-6">
-        <section className="topbar w-full h-fit flex flex-row items-center justify-end gap-4 p-4 rounded-3xl border border-solid border-black/[.08]">
-          <SimpleBtn
-            text="Calender"
-            theme="light"
-            height="h-12 min-h-12"
-            width="w-12 md:w-[158px] min-w-12"
-            padding="px-0 md:px-5"
-            notify={true}
-            textStyle="hidden md:block"
-            icon={<LuCalendarDays />}
-          />
-          <SimpleBtn
-            text="Notification"
-            theme="light"
-            height="h-12 min-h-12"
-            width="w-12 md:w-[158px] min-w-12"
-            padding="px-0 md:px-5"
-            notify={true}
-            textStyle="hidden md:block"
-            icon={<FiBell />}
-          />
-          <SimpleBtn
-            text="Contact"
-            theme="light"
-            height="h-12 min-h-12"
-            width="w-12 md:w-[158px] min-w-12"
-            padding="px-0 md:px-5"
-            textStyle="hidden md:block"
-            icon={<FiUserPlus />}
-          />
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 backdrop-blur-[1px] shadow-sm md:hidden z-25"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
+      <section className="w-full h-full flex flex-col lg:gap-6 md:gap-4 gap-2">
+        <section className="topbar w-full h-fit flex flex-row items-center justify-between gap-4 lg:p-4 md:p-3 p-2 rounded-xl sm:rounded-3xl border border-solid border-black/[.08]">
           <SimpleBtn
             text=""
             theme="light"
-            width="w-12 min-w-12"
-            navigateTo="/account"
-            backgroundImage="/assets/woman.png"
+            width="lg:w-12 lg:min-w-12 md:w-10 md:min-w-10 w-8 min-w-8"
+            padding="px-0 lg:px-5 md:px-3"
+            tailwind="md:hidden "
+            textStyle="hidden"
+            icon={<FiMenu />}
+            onClick={() => setIsSidebarOpen((prev) => !prev)}
           />
+
+          <div className="w-full h-fit flex flex-row items-center justify-end gap-4">
+            <SimpleBtn
+              text="Calender"
+              theme="light"
+              height="lg:h-12 lg:min-h-12 md:h-10 md:min-h-10 h-8 min-h-8"
+              width="lg:w-[158px] lg:min-w-[158px] md:w-fit md:min-w-fit w-8 min-w-8"
+              padding="px-0 lg:px-5 md:px-3"
+              notify={true}
+              textStyle="hidden md:block"
+              icon={<LuCalendarDays />}
+            />
+            <SimpleBtn
+              text="Notification"
+              theme="light"
+              height="lg:h-12 lg:min-h-12 md:h-10 md:min-h-10 h-8 min-h-8"
+              width="lg:w-[158px] lg:min-w-[158px] md:w-fit md:min-w-fit w-8 min-w-8"
+              padding="px-0 lg:px-5 md:px-3"
+              notify={true}
+              textStyle="hidden md:block"
+              icon={<FiBell />}
+            />
+            <SimpleBtn
+              text="Contact"
+              theme="light"
+              height="lg:h-12 lg:min-h-12 md:h-10 md:min-h-10 h-8 min-h-8"
+              width="lg:w-[158px] lg:min-w-[158px] md:w-fit md:min-w-fit w-8 min-w-8"
+              padding="px-0 lg:px-5 md:px-3"
+              textStyle="hidden md:block"
+              icon={<FiUserPlus />}
+            />
+            <SimpleBtn
+              text=""
+              theme="light"
+              width="lg:w-12 lg:min-w-12 md:w-10 md:min-w-10 w-8 min-w-8"
+              navigateTo="/account"
+              backgroundImage="/assets/woman.png"
+            />
+          </div>
         </section>
 
-        <section className="maingrid w-full h-full flex flex-col rounded-3xl border border-solid border-black/[.08] overflow-hidden">
+        <section className="maingrid w-full h-full flex flex-col rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden">
           <div className="shadowDiv-t w-full h-2 z-[2]"></div>
 
-          <div className="w-full h-full flex flex-col gap-6 px-4 py-2 overflow-y-auto z-[1]">
+          <div className="w-full h-full flex flex-col gap-6 lg:px-4 px-3 py-2 overflow-y-auto z-[1]">
             <section className="mb-4">
               <h3 className="mb-4 flex flex-row items-center gap-2">
                 <FiImage className="text-[80%]" />
@@ -205,7 +242,8 @@ export default function Dashboard() {
               <MasonryLayout
                 items={invitationCards}
                 calculateColumns={calculateColumns}
-                tailwindStyle="cursor-pointer border border-solid border-black/[.08]"
+                columnGap={calculateColGap}
+                tailwindStyle="cursor-pointer border border-solid border-black/[.08] sm:rounded-2xl rounded-lg"
                 renderItem={(card) => (
                   <div
                     onClick={() => {
