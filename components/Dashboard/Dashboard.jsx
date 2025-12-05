@@ -86,7 +86,7 @@ export default function Dashboard() {
     <main className="relative flex min-h-full w-full max-w-[1080px] flex-row items-center lg:gap-6 md:gap-4 gap-2">
       <section
         className={`sidebar h-full flex flex-col items-center justify-between lg:py-4 py-3 rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden ${
-          isSidebarOpen ? "sidebar-open" : ""
+          isSidebarOpen ? "sidebar-open shadow-md" : ""
         }`}
       >
         <Image
@@ -114,7 +114,7 @@ export default function Dashboard() {
         </div>
 
         <div className="shadowDiv-t w-full h-2 min-h-2 z-2"></div>
-        <div className="w-full h-full flex flex-col gap-4 lg:px-4 px-3 lg:py-4 py-3 overflow-y-auto z-1">
+        <div className="w-full h-full flex flex-col md:gap-4 gap-2 lg:px-4 px-3 lg:py-4 py-3 overflow-y-auto z-1">
           {Array.from({ length: 10 }).map((_, index) => (
             <SimpleBtn
               key={index}
@@ -144,13 +144,15 @@ export default function Dashboard() {
 
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/20 backdrop-blur-[1px] shadow-sm md:hidden z-25"
+          className={`bgBlur fixed inset-0 md:hidden z-25 ${
+            isSidebarOpen ? "sidebar-open" : ""
+          }`}
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
       <section className="w-full h-full flex flex-col lg:gap-6 md:gap-4 gap-2">
-        <section className="topbar w-full h-fit flex flex-row items-center justify-between gap-4 lg:p-4 md:p-3 p-2 rounded-xl sm:rounded-3xl border border-solid border-black/[.08]">
+        <section className="topbar w-full h-fit flex flex-row items-center justify-between md:gap-4 gap-2 lg:p-4 md:p-3 p-2 rounded-xl sm:rounded-3xl border border-solid border-black/[.08]">
           <SimpleBtn
             text=""
             theme="light"
@@ -205,14 +207,14 @@ export default function Dashboard() {
         <section className="maingrid w-full h-full flex flex-col rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden">
           <div className="shadowDiv-t w-full h-2 z-[2]"></div>
 
-          <div className="w-full h-full flex flex-col gap-6 lg:px-4 px-3 py-2 overflow-y-auto z-[1]">
+          <div className="w-full h-full flex flex-col md:gap-6 gap-4 lg:px-4 px-3 py-2 overflow-y-auto z-[1]">
             <section className="mb-4">
               <h3 className="mb-4 flex flex-row items-center gap-2">
                 <FiImage className="text-[80%]" />
                 My cards
               </h3>
 
-              <section className="myCards grid grid-rows-2 grid-flow-col auto-cols-fr gap-4">
+              <section className="myCards grid grid-rows-2 grid-flow-col auto-cols-fr md:gap-4 gap-2">
                 <SimpleCard
                   text="Create"
                   icon={<FiPlus />}
