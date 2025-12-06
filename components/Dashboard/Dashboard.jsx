@@ -156,8 +156,8 @@ export default function Dashboard() {
           <SimpleBtn
             text=""
             theme="light"
-            width="lg:w-12 lg:min-w-12 md:w-10 md:min-w-10 w-8 min-w-8"
-            padding="px-0 lg:px-5 md:px-3"
+            width="lg:w-12 lg:min-w-12 w-10 min-w-10"
+            padding="px-0 lg:px-5 px-3"
             tailwind="md:hidden "
             textStyle="hidden"
             icon={<FiMenu />}
@@ -168,9 +168,9 @@ export default function Dashboard() {
             <SimpleBtn
               text="Calender"
               theme="light"
-              height="lg:h-12 lg:min-h-12 md:h-10 md:min-h-10 h-8 min-h-8"
-              width="lg:w-[158px] lg:min-w-[158px] md:w-fit md:min-w-fit w-8 min-w-8"
-              padding="px-0 lg:px-5 md:px-3"
+              height="lg:h-12 lg:min-h-12 h-10 min-h-10"
+              width="lg:w-[158px] lg:min-w-[158px] w-fit min-w-fit"
+              padding="px-0 lg:px-5 px-3"
               notify={true}
               textStyle="hidden md:block"
               icon={<LuCalendarDays />}
@@ -178,9 +178,9 @@ export default function Dashboard() {
             <SimpleBtn
               text="Notification"
               theme="light"
-              height="lg:h-12 lg:min-h-12 md:h-10 md:min-h-10 h-8 min-h-8"
-              width="lg:w-[158px] lg:min-w-[158px] md:w-fit md:min-w-fit w-8 min-w-8"
-              padding="px-0 lg:px-5 md:px-3"
+              height="lg:h-12 lg:min-h-12 h-10 min-h-10"
+              width="lg:w-[158px] lg:min-w-[158px] w-fit min-w-fit"
+              padding="px-0 lg:px-5 px-3"
               notify={true}
               textStyle="hidden md:block"
               icon={<FiBell />}
@@ -188,16 +188,16 @@ export default function Dashboard() {
             <SimpleBtn
               text="Contact"
               theme="light"
-              height="lg:h-12 lg:min-h-12 md:h-10 md:min-h-10 h-8 min-h-8"
-              width="lg:w-[158px] lg:min-w-[158px] md:w-fit md:min-w-fit w-8 min-w-8"
-              padding="px-0 lg:px-5 md:px-3"
+              height="lg:h-12 lg:min-h-12 h-10 min-h-10"
+              width="lg:w-[158px] lg:min-w-[158px] w-fit min-w-fit"
+              padding="px-0 lg:px-5 px-3"
               textStyle="hidden md:block"
               icon={<FiUserPlus />}
             />
             <SimpleBtn
               text=""
               theme="light"
-              width="lg:w-12 lg:min-w-12 md:w-10 md:min-w-10 w-8 min-w-8"
+              width="lg:w-12 lg:min-w-12 w-10 min-w-10"
               navigateTo="/account"
               backgroundImage="/assets/woman.png"
             />

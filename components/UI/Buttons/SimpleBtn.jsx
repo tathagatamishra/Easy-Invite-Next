@@ -7,10 +7,10 @@ export default function SimpleBtn({
   text = "Click Here",
   cssClass = "simpleBtn",
   fontstyle = "",
-  height = "lg:h-12 lg:min-h-12 md:h-10 md:min-h-10 h-8 min-h-8",
-  width = "lg:w-[158px] w-full min-w-fit",
+  height = "lg:h-12 lg:min-h-12 h-10 min-h-10",
+  width = "lg:w-[158px] sm:w-[158px] w-full min-w-fit",
   size = "",
-  padding = "lg:px-5 sm:px-3 px-2",
+  padding = "lg:px-5 px-3",
   border = "",
   backgroundImage = "none",
   className = "relative rounded-full flex items-center justify-center gap-2 transition-colors cursor-pointer",
@@ -28,7 +28,7 @@ export default function SimpleBtn({
   disabled = false,
   notify = false,
   textStyle = "",
-  fontStyle = "lg:text-[16px] md:text-[14px] text-[12px]",
+  fontStyle = "lg:text-[16px] md:text-[14px] text-[16px]",
 }) {
   const router = useRouter();
 
@@ -60,7 +60,7 @@ export default function SimpleBtn({
         ${theme == "light" && lightTheme}`}
     >
       {notify && (
-        <div className="bg-[#ff2525] md:min-w-[10px] min-w-[6px] md:w-[10px] w-[6px] md:min-h-[10px] min-h-[6px] md:h-[10px] h-[6px] rounded-full absolute top-0 right-0"></div>
+        <div className="bg-[#ff2525] md:min-w-[10px] min-w-[8px] md:w-[10px] w-[8px] md:min-h-[10px] min-h-[8px] md:h-[10px] h-[8px] rounded-full absolute top-0 right-0"></div>
       )}
       {icon && icon}
       {logo && (

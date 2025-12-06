@@ -10,3 +10,11 @@ Make Your Moments Memorable
 | lg                | 64rem         | (1024px) @media (width >= 64rem) { ... } |
 | xl                | 80rem         | (1280px) @media (width >= 80rem) { ... } |
 | 2xl               | 96rem         | (1536px) @media (width >= 96rem) { ... } |
+
+```
+lg > md > sm > ──
+lg > md > ──
+lg > sm > ──
+md > ──
+sm > ──
+```

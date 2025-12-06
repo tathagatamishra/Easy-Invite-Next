@@ -27,7 +27,14 @@ body {
   align-items: center;
   background: #fff;
   color: #000;
-  overflow: hidden;
+  overflow-y: hidden;
+}
+
+@media (width <=480px) {
+  body {
+    padding: 14px;
+    padding-bottom: 24px;
+  }
 }
 
 h1 {

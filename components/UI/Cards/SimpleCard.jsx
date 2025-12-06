@@ -6,11 +6,11 @@ import "./SimpleCard.css";
 export default function SimpleCard({
   text = "Click Here",
   cssClass = "simpleBtn",
-  fontstyle = "lg:text-[16px] md:text-[14px] text-[12px]",
+  fontstyle = "lg:text-[16px] md:text-[14px] text-[16px]",
   height = "h-[158px] max-h-[158px]",
   width = "w-[158px] max-w-[158px]",
   size = "",
-  padding = "px-5",
+  padding = "p-5",
   border = "",
   backgroundImage = "none",
   className = "relative sm:rounded-2xl rounded-xl flex items-center justify-center gap-2 transition-colors overflow-hidden cursor-pointer",
