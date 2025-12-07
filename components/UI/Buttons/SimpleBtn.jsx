@@ -28,7 +28,7 @@ export default function SimpleBtn({
   disabled = false,
   notify = false,
   textStyle = "",
-  fontStyle = "lg:text-[16px] md:text-[14px] text-[16px]",
+  fontStyle = "lg:text-[16px] text-[14px]",
 }) {
   const router = useRouter();
 
