@@ -4,6 +4,7 @@
 
 * {
   font-family: "Alan Sans", sans-serif;
+  font-family: var(--font-alan-sans)
 }
 
 html {

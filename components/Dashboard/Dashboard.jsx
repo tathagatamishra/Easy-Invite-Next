@@ -221,6 +221,7 @@ export default function Dashboard() {
                   theme="light"
                   height="h-full aspect-square"
                   width="w-full"
+                  navigateTo="/test"
                 />
                 {displayedCards.map((card, index) => (
                   <SimpleCard

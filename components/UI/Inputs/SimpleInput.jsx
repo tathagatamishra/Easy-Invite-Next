@@ -1,26 +1,29 @@
-// Exam/UI/Buttons/SimpleInput.jsx
+// Exam/UI/Inputs/SimpleInput.jsx
 import Image from "next/image";
 import "./SimpleInput.css";
 import { useState } from "react";
 
 export default function SimpleInput({
   label = "Type Here",
-  id = "inputField",
+  id = "",
   cssClass = "",
-  fontstyle = "",
-  size = "h-12 w-full rounded-full",
-  padding = "px-5",
+  className = "rounded-full",
+  height = "lg:h-12 lg:min-h-12 h-10 min-h-10",
+  width = "w-full",
+  size = "",
+  padding = "lg:px-5 px-3",
   border = "",
+  textStyle = "",
+  fontStyle = "lg:text-[16px] text-[14px]",
   theme = "light",
   darkTheme = "",
   lightTheme = "border border-solid border-black/[.08] hover:border-black/[.3] focus:border-black/[.3]",
   value,
   type = "text",
-  form = "",
   icon = false,
   onClick,
   disabled = false,
-  required = false,
+  required = true,
   onChange,
 }) {
   const [focusLabel, setFocusLabel] = useState(false);
@@ -29,7 +32,12 @@ export default function SimpleInput({
     <div className="inputDiv relative w-full">
       <label
         htmlFor={id}
-        className={`inputLabel ${(focusLabel || value) && "FocusLabel"}`}
+        onClick={() => {
+          setFocusLabel(true);
+        }}
+        className={`inputLabel ${fontStyle} ${textStyle} ${
+          (focusLabel || value) && "FocusLabel"
+        }`}
       >
         {icon && <Image src={icon} alt="icon" width={16} height={16} />}
         {label} {required && <span>*</span>}
@@ -39,7 +47,7 @@ export default function SimpleInput({
         id={id}
         name={id}
         type={type}
-        form={form}
+        // form={form}
         value={value}
         required={required}
         disabled={disabled}
@@ -52,7 +60,7 @@ export default function SimpleInput({
           if (value.length === 0) setFocusLabel(false);
         }}
         style={{ border: border }}
-        className={`simpleInput ${cssClass} ${padding} ${size} ${fontstyle}
+        className={`simpleInput ${cssClass} ${className} ${padding} ${height} ${width} ${size} ${fontStyle} ${textStyle}
           ${disabled ? "disabledInput" : ""}
           ${theme === "dark" ? darkTheme : ""}
           ${theme === "light" ? lightTheme : ""}

@@ -19,8 +19,7 @@ export default function SimpleBtn({
   darkTheme = "bg-[#171717] text-[#ffffff] active:bg-[#383838]",
   lightTheme = "border border-solid border-black/[.08] active:border-transparent active:bg-black/[.04]",
   value = "",
-  type = "button",
-  form = "",
+  type = "submit",
   logo = false,
   icon = false,
   onClick = false,
@@ -39,7 +38,6 @@ export default function SimpleBtn({
   return (
     <button
       type={type}
-      form={form}
       value={value}
       disabled={disabled}
       onClick={() => {
