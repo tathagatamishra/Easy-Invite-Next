@@ -13,6 +13,7 @@ import {
   FiBell,
   FiUserPlus,
   FiMenu,
+  FiLogOut,
 } from "react-icons/fi";
 import invitationCardsData from "../../data/invitationCards.json";
 import userCardsData from "../../data/userCards.json";
@@ -20,9 +21,13 @@ import MasonryLayout from "../UI/MasonryLayout/MasonryLayout";
 import SimpleCard from "../UI/Cards/SimpleCard";
 import { LuCalendarDays } from "react-icons/lu";
 import { LuBell } from "react-icons/lu";
+import { logoutUser } from "@/utils/authClient";
 
 export default function Dashboard() {
   const router = useRouter();
+  const navigate = (page) => {
+    router.push(page);
+  };
   const [invitationCards, setInvitationCards] = useState([]);
   const [userCards, setUserCards] = useState([]);
   const [maxCards, setMaxCards] = useState(8);
@@ -78,10 +83,10 @@ export default function Dashboard() {
   }, [calculateMaxCards]);
   const displayedCards = userCards.slice(0, maxCards - 1);
 
-  const navigate = (page) => {
-    router.push(page);
+  const doLogout = async () => {
+    await logoutUser();
+    navigate("/");
   };
-
   return (
     <main className="relative flex min-h-full w-full max-w-[1080px] flex-row items-center lg:gap-6 md:gap-4 gap-2">
       <section
@@ -193,6 +198,16 @@ export default function Dashboard() {
               padding="px-0 lg:px-5 px-3"
               textStyle="hidden md:block"
               icon={<FiUserPlus />}
+            />
+            <SimpleBtn
+              text="Logout"
+              theme="light"
+              height="lg:h-12 lg:min-h-12 h-10 min-h-10"
+              width="lg:w-[158px] lg:min-w-[158px] w-fit min-w-fit"
+              padding="px-0 lg:px-5 px-3"
+              textStyle="hidden md:block"
+              icon={<FiLogOut />}
+              onClick={doLogout}
             />
             <SimpleBtn
               text=""

@@ -49,3 +49,16 @@ export function clearAuth() {
   localStorage.removeItem(USER_KEY);
   delete invitease_api.defaults.headers.common["Authorization"];
 }
+
+export async function logoutUser() {
+  try {
+    // call backend logout to destroy express-session
+    await invitease_api.get("/auth/logout");
+  } catch (err) {
+    // ignore errors — still clear local auth
+    console.warn("Backend logout request failed:", err?.response?.data || err.message);
+  } finally {
+    clearAuth();
+    if (typeof window !== "undefined") window.location.href = "/";
+  }
+}
