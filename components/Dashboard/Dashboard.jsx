@@ -179,7 +179,7 @@ export default function Dashboard() {
   // -------------------------
 
   return (
-    <main className="relative flex min-h-full w-full max-w-[1216px] flex-row items-center lg:gap-6 md:gap-4 gap-2">
+    <main className="relative flex min-h-full w-full max-w-[1216px] flex-row lg:gap-6 md:gap-4 gap-2">
       <section
         className={`Sidebar h-full hidden md:flex flex-col items-center justify-between lg:py-4 py-3 rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden sm:shadow-none`}
       >
@@ -336,7 +336,7 @@ export default function Dashboard() {
               text="Create"
               icon={<FiPlus />}
               theme="light"
-              height="xs:aspect-square"
+              height="md:aspect-square"
               width="w-full"
               navigateTo="/test"
             />
@@ -346,7 +346,7 @@ export default function Dashboard() {
                 text="Card"
                 theme="light"
                 bgImage={card.imageUrl}
-                height="xs:aspect-square"
+                height="md:aspect-square"
                 width="w-full"
               />
             ))}

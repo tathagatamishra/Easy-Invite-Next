@@ -16,7 +16,7 @@ html {
   margin: 0%;
   width: 100vw;
   height: 100vh;
-  background: #000;
+  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,6 +27,7 @@ body {
   margin: 0%;
   width: 100vw;
   height: 100vh;
+  min-height: 640px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,8 +36,16 @@ body {
   overflow-x: hidden;
 }
 
+@media (height <=768px) {
+  body {
+    min-height: fit-content;
+    padding: 14px;
+    padding-bottom: 24px;
+  }
+}
 @media (width <=480px) {
   body {
+    /* min-height: fit-content; */
     padding: 14px;
     padding-bottom: 24px;
   }
