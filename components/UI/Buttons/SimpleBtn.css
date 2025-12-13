@@ -1,5 +1,6 @@
 /* components/UI/Buttons/SimpleBtn.css */
 button {
+    user-select: none;
     white-space: nowrap;
     transition: 200ms ease;
 }

@@ -33,13 +33,12 @@ export default function Dashboard() {
   const [maxCards, setMaxCards] = useState(8);
   const [userEvents, setUserEvents] = useState([]);
   const [maxEvents, setMaxEvents] = useState(9);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const calculateMaxEvents = useCallback(() => {
     if (typeof window !== "undefined") {
       const width = window.innerWidth;
       if (width <= 480) return 6;
-      if (width <= 640) return 4;
+      if (width <= 639) return 4;
       if (width <= 768) return 6;
       return 6;
     }
@@ -117,11 +116,14 @@ export default function Dashboard() {
     navigate("/");
   };
 
-  // horizontal scroll ---
+  // horizontal scroll with wheel + drag ---
   const scrollContainerRef = useRef(null);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
     const handleWheel = (e) => {
       // Prevent default vertical scroll
@@ -132,15 +134,45 @@ export default function Dashboard() {
       }
     };
 
+    const handleMouseDown = (e) => {
+      isDown = true;
+      startX = e.pageX - scrollContainer.offsetLeft;
+      scrollLeft = scrollContainer.scrollLeft;
+    };
+
+    const handleMouseLeave = () => {
+      isDown = false;
+    };
+
+    const handleMouseUp = () => {
+      isDown = false;
+    };
+
+    const handleMouseMove = (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - scrollContainer.offsetLeft;
+      const walk = x - startX; // Scroll speed multiplier
+      scrollContainer.scrollLeft = scrollLeft - walk;
+    };
+
     if (scrollContainer) {
       scrollContainer.addEventListener("wheel", handleWheel, {
         passive: false,
       });
+      scrollContainer.addEventListener("mousedown", handleMouseDown);
+      scrollContainer.addEventListener("mouseleave", handleMouseLeave);
+      scrollContainer.addEventListener("mouseup", handleMouseUp);
+      scrollContainer.addEventListener("mousemove", handleMouseMove);
     }
 
     return () => {
       if (scrollContainer) {
         scrollContainer.removeEventListener("wheel", handleWheel);
+        scrollContainer.removeEventListener("mousedown", handleMouseDown);
+        scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
+        scrollContainer.removeEventListener("mouseup", handleMouseUp);
+        scrollContainer.removeEventListener("mousemove", handleMouseMove);
       }
     };
   }, []);
@@ -149,9 +181,7 @@ export default function Dashboard() {
   return (
     <main className="relative flex min-h-full w-full max-w-[1216px] flex-row items-center lg:gap-6 md:gap-4 gap-2">
       <section
-        className={`Sidebar h-full hidden md:flex flex-col items-center justify-between lg:py-4 py-3 rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden sm:shadow-none ${
-          isSidebarOpen ? "sidebar-open shadow-md" : ""
-        }`}
+        className={`Sidebar h-full hidden md:flex flex-col items-center justify-between lg:py-4 py-3 rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden sm:shadow-none`}
       >
         <Image
           className="mb-10"
@@ -180,14 +210,17 @@ export default function Dashboard() {
         <div className="shadowDiv-t w-full h-2 min-h-2 z-2"></div>
 
         <div className="w-full h-full flex flex-col md:gap-4 gap-2 lg:px-4 px-3 lg:py-4 py-3 overflow-y-auto overflow-x-hidden z-1">
-          {Array.from({ length: 10 }).map((_, index) => (
+          {userEvents.map((event, index) => (
             <SimpleBtn
               key={index}
-              text={"Event " + (index + 1)}
+              text={event.eventTitle}
+              backgroundImage={event.coverImageUrl}
+              boxShadow="0px 2px 0px #767676"
+              bgImageOpacity="40"
               theme="light"
-              width="w-full"
+              width="xs:w-full w-[150px]"
               tailwind="justify-start"
-              navigateTo="/login"
+              textStyle="truncate max-w-full"
             />
           ))}
         </div>
@@ -207,27 +240,8 @@ export default function Dashboard() {
         </div>
       </section>
 
-      {/* {isSidebarOpen && (
-        <div
-          className={`bgBlur fixed inset-0 md:hidden z-25 ${
-            isSidebarOpen ? "sidebar-open" : ""
-          }`}
-          onClick={() => setIsSidebarOpen(false)}
-        />
-      )} */}
-
-      <section className="w-full h-full flex flex-col lg:gap-6 md:gap-4 gap-2">
+      <section className="w-full h-full flex flex-col lg:gap-6 md:gap-4 gap-3.5">
         <section className="Topbar w-full h-fit flex flex-row items-center justify-between md:gap-4 gap-2 lg:p-4 md:p-3 p-2 rounded-xl sm:rounded-3xl border border-solid border-black/[.08]">
-          {/* <SimpleBtn
-            text=""
-            theme="light"
-            width="lg:w-12 lg:min-w-12 w-10 min-w-10"
-            padding="px-0 lg:px-5 px-3"
-            tailwind="md:hidden"
-            textStyle="hidden"
-            icon={<FiMenu />}
-            onClick={() => setIsSidebarOpen((prev) => !prev)}
-          /> */}
 
           <div className="w-full h-fit flex flex-row items-center justify-end gap-4">
             <SimpleBtn
@@ -241,7 +255,7 @@ export default function Dashboard() {
               icon={<LuCalendarDays />}
             />
             <SimpleBtn
-              text="Notification"
+              text="Updates"
               theme="light"
               height="lg:h-12 lg:min-h-12 h-10 min-h-10"
               width="lg:w-[158px] lg:min-w-[158px] w-fit min-w-fit"
@@ -251,7 +265,7 @@ export default function Dashboard() {
               icon={<FiBell />}
             />
             <SimpleBtn
-              text="Contact"
+              text="Guests"
               theme="light"
               height="lg:h-12 lg:min-h-12 h-10 min-h-10"
               width="lg:w-[158px] lg:min-w-[158px] w-fit min-w-fit"
@@ -259,16 +273,6 @@ export default function Dashboard() {
               textStyle="hidden md:block"
               icon={<FiUserPlus />}
             />
-            {/* <SimpleBtn
-              text="Logout"
-              theme="light"
-              height="lg:h-12 lg:min-h-12 h-10 min-h-10"
-              width="lg:w-[158px] lg:min-w-[158px] w-fit min-w-fit"
-              padding="px-0 lg:px-5 px-3"
-              textStyle="hidden md:block"
-              icon={<FiLogOut />}
-              onClick={doLogout}
-            /> */}
             <SimpleBtn
               text=""
               theme="light"
@@ -279,7 +283,7 @@ export default function Dashboard() {
           </div>
         </section>
 
-        <section className="Events w-full min-h-fit flex flex-col rounded-xl sm:rounded-3xl border border-solid border-black/[.08] gap-4 overflow-hidden md:hidden">
+        <section className="Events w-full min-h-fit flex flex-col rounded-xl sm:rounded-3xl border border-solid border-black/[.08] gap-8 overflow-hidden md:hidden">
           <div className="w-full h-fit px-3 pt-4">
             <SimpleBtn
               icon={<FiPlus />}
@@ -293,73 +297,70 @@ export default function Dashboard() {
             />
           </div>
 
-          <div className="w-full h-fit pb-4 flex flex-row">
-            <div className="shadowDiv-t h-full w-2 min-w-2 z-2"></div>
+          <div className="w-full h-fit xs:px-3 px-0  flex flex-row">
+            <div className="shadowDiv-t h-full w-2 min-w-2 z-2 xs:hidden flex"></div>
 
             <div
               ref={scrollContainerRef}
               className="w-full h-fit overflow-hidden overflow-x-auto"
             >
-              <div className="h-fit w-fit flex flex-row xs:grid sm:grid-cols-3 grid-cols-2 grid-flow-row auto-rows-fr sm:gap-4 gap-2 px-2">
+              <div className="h-fit w-fit flex flex-row xs:grid sm:grid-cols-3 grid-cols-2 grid-flow-row auto-rows-fr sm:gap-4 gap-2 xs:px-0 px-2 pb-6">
                 {displayedEvents.map((event, index) => (
                   <SimpleBtn
                     key={index}
                     text={event.eventTitle}
                     backgroundImage={event.coverImageUrl}
+                    boxShadow="0px 2px 0px #767676"
+                    bgImageOpacity="40"
                     theme="light"
-                    width="min-w-[158px]"
+                    width="xs:w-full w-[150px]"
                     tailwind="justify-start"
+                    textStyle="truncate max-w-full"
                   />
                 ))}
               </div>
             </div>
 
-            <div className="shadowDiv-b h-full w-2 min-w-2 z-2"></div>
+            <div className="shadowDiv-b h-full w-2 min-w-2 z-2 xs:hidden flex"></div>
           </div>
         </section>
 
-        <section className="MyCards w-full h-full flex flex-col rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden">
-          <h3 className="lg:px-4 px-3 my-2 flex flex-row items-center gap-2">
+        <section className="MyCards w-full min-h-fit flex flex-col rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden">
+          <h3 className="lg:px-4 px-3 mt-2 flex flex-row items-center gap-2 z-3">
             <FiImage className="text-[80%]" />
             My cards
           </h3>
 
-          <div className="shadowDiv-t w-full h-2 z-[2]"></div>
-          <div className="w-full h-full flex flex-col md:gap-6 gap-4 lg:px-4 px-3 py-4 overflow-y-auto z-[1]">
-            <section className="mb-4">
-              <section className="grid grid-rows-2 grid-flow-col auto-cols-fr md:gap-4 gap-2">
-                <SimpleCard
-                  text="Create"
-                  icon={<FiPlus />}
-                  theme="light"
-                  height="h-full aspect-square"
-                  width="w-full"
-                  navigateTo="/test"
-                />
-                {displayedCards.map((card, index) => (
-                  <SimpleCard
-                    key={index}
-                    text="Card"
-                    theme="light"
-                    bgImage={card.imageUrl}
-                    height="h-full aspect-square"
-                    width="w-full"
-                  />
-                ))}
-              </section>
-            </section>
+          <div className="grid grid-rows-2 grid-flow-col auto-cols-fr md:gap-4 gap-2 md:mb-4 mb-2 lg:px-4 px-3 py-4 z-1">
+            <SimpleCard
+              text="Create"
+              icon={<FiPlus />}
+              theme="light"
+              height="xs:aspect-square"
+              width="w-full"
+              navigateTo="/test"
+            />
+            {displayedCards.map((card, index) => (
+              <SimpleCard
+                key={index}
+                text="Card"
+                theme="light"
+                bgImage={card.imageUrl}
+                height="xs:aspect-square"
+                width="w-full"
+              />
+            ))}
           </div>
-          <div className="shadowDiv-b w-full h-2 z-[2]"></div>
         </section>
 
         <section className="Marketplace w-full h-full flex flex-col rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden">
-          <h3 className="lg:px-4 px-3 my-2 flex flex-row items-center gap-2">
+          <h3 className="lg:px-4 px-3 mt-2 flex flex-row items-center gap-2 z-3">
             <FiGrid className="text-[80%]" />
             Explore cards
           </h3>
 
-          <div className="shadowDiv-t w-full h-2 z-[2]"></div>
-          <div className="w-full h-full flex flex-col md:gap-6 gap-4 lg:px-4 px-3 py-4 overflow-y-auto z-[1]">
+          <div className="shadowDiv-t w-full h-2 z-2"></div>
+          <div className="w-full h-full flex flex-col md:gap-6 gap-4 lg:px-4 px-3 py-4 overflow-y-auto z-1">
             <section className="mb-4">
               <MasonryLayout
                 items={invitationCards}

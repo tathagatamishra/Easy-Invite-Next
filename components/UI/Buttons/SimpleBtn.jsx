@@ -12,7 +12,9 @@ export default function SimpleBtn({
   size = "",
   padding = "lg:px-5 px-3",
   border = "",
-  backgroundImage = "none",
+  boxShadow = "",
+  backgroundImage = false,
+  bgImageOpacity = "100",
   className = "relative rounded-full flex items-center justify-center gap-2 transition-colors cursor-pointer",
   tailwind = "",
   theme = "",
@@ -46,13 +48,15 @@ export default function SimpleBtn({
       }}
       style={{
         border: `${border}`,
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
+        boxShadow: `${boxShadow}`,
+        // backgroundImage: `url(${backgroundImage})`,
+        // backgroundSize: "cover",
+        // backgroundRepeat: "no-repeat",
+        // backgroundPosition: "center",
       }}
       className={`${cssClass} ${className} ${tailwind} ${padding} ${height} ${width} ${size} ${fontstyle} 
         ${disabled && "Disabled"} 
+        ${!notify && "overflow-hidden"}
         ${theme == "dark" && darkTheme} 
         ${theme == "dark" && "BBB"} 
         ${theme == "light" && lightTheme}`}
@@ -60,11 +64,24 @@ export default function SimpleBtn({
       {notify && (
         <div className="bg-[#ff2525] md:min-w-[10px] min-w-[8px] md:w-[10px] w-[8px] md:min-h-[10px] min-h-[8px] md:h-[10px] h-[8px] rounded-full absolute top-0 right-0"></div>
       )}
+
       {icon && icon}
+
       {logo && (
-        <Image className="" src={logo} alt="logo" width={16} height={16} />
+        <Image className="z-1" src={logo} alt="logo" width={16} height={16} />
       )}
-      <div className={`${fontStyle} ${textStyle}`}>{text}</div>
+
+      {text && <div className={`${fontStyle} ${textStyle} z-1`}>{text}</div>}
+
+      {backgroundImage && (
+        <Image
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-full object-cover z-0 opacity-${bgImageOpacity}`}
+          src={backgroundImage}
+          alt="bg"
+          width={480}
+          height={480}
+        />
+      )}
     </button>
   );
 }
