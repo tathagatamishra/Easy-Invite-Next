@@ -5,6 +5,7 @@ Make Your Moments Memorable
 
 | Breakpoint prefix | Minimum width | CSS                                      |
 | :-------          | :-------      | :-------                                 |
+| xs                | 480px         | (480px)  @media (width >= 480px) { ... } |
 | sm                | 40rem         | (640px)  @media (width >= 40rem) { ... } |
 | md                | 48rem         | (768px)  @media (width >= 48rem) { ... } |
 | lg                | 64rem         | (1024px) @media (width >= 64rem) { ... } |

@@ -1,6 +1,6 @@
 // components/Dashboard/Dashboard.jsx
 "use client";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import SimpleBtn from "../UI/Buttons/SimpleBtn";
 import { useRouter } from "next/navigation";
@@ -17,10 +17,10 @@ import {
 } from "react-icons/fi";
 import invitationCardsData from "../../data/invitationCards.json";
 import userCardsData from "../../data/userCards.json";
+import events from "../../data/events.json";
 import MasonryLayout from "../UI/MasonryLayout/MasonryLayout";
 import SimpleCard from "../UI/Cards/SimpleCard";
 import { LuCalendarDays } from "react-icons/lu";
-import { LuBell } from "react-icons/lu";
 import { logoutUser } from "@/utils/authClient";
 
 export default function Dashboard() {
@@ -31,7 +31,20 @@ export default function Dashboard() {
   const [invitationCards, setInvitationCards] = useState([]);
   const [userCards, setUserCards] = useState([]);
   const [maxCards, setMaxCards] = useState(8);
+  const [userEvents, setUserEvents] = useState([]);
+  const [maxEvents, setMaxEvents] = useState(9);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const calculateMaxEvents = useCallback(() => {
+    if (typeof window !== "undefined") {
+      const width = window.innerWidth;
+      if (width <= 480) return 6;
+      if (width <= 640) return 4;
+      if (width <= 768) return 6;
+      return 6;
+    }
+    return 4;
+  }, []);
 
   const calculateMaxCards = useCallback(() => {
     if (typeof window !== "undefined") {
@@ -44,6 +57,7 @@ export default function Dashboard() {
     return 6;
   }, []);
 
+  // these are for marketplace cards masonry layout
   const calculateColumns = useCallback(() => {
     if (typeof window !== "undefined") {
       const width = window.innerWidth;
@@ -65,11 +79,24 @@ export default function Dashboard() {
     }
     return 12;
   }, []);
+  // ----------------------------------------------
 
   useEffect(() => {
     setInvitationCards(invitationCardsData.invitationCards);
     setUserCards(userCardsData.userCards);
+    setUserEvents(events.events);
   }, []);
+
+  useEffect(() => {
+    // Set initial max cards
+    setMaxEvents(calculateMaxEvents());
+    // Update on resize
+    const handleResize = () => {
+      setMaxEvents(calculateMaxEvents());
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [calculateMaxEvents]);
 
   useEffect(() => {
     // Set initial max cards
@@ -81,16 +108,48 @@ export default function Dashboard() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [calculateMaxCards]);
+
+  const displayedEvents = userEvents.slice(0, maxEvents);
   const displayedCards = userCards.slice(0, maxCards - 1);
 
   const doLogout = async () => {
     await logoutUser();
     navigate("/");
   };
+
+  // horizontal scroll ---
+  const scrollContainerRef = useRef(null);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+
+    const handleWheel = (e) => {
+      // Prevent default vertical scroll
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        // Convert vertical scroll to horizontal
+        scrollContainer.scrollLeft += e.deltaY;
+      }
+    };
+
+    if (scrollContainer) {
+      scrollContainer.addEventListener("wheel", handleWheel, {
+        passive: false,
+      });
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener("wheel", handleWheel);
+      }
+    };
+  }, []);
+  // -------------------------
+
   return (
-    <main className="relative flex min-h-full w-full max-w-[1080px] flex-row items-center lg:gap-6 md:gap-4 gap-2">
+    <main className="relative flex min-h-full w-full max-w-[1216px] flex-row items-center lg:gap-6 md:gap-4 gap-2">
       <section
-        className={`sidebar h-full flex flex-col items-center justify-between lg:py-4 py-3 rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden ${
+        className={`Sidebar h-full hidden md:flex flex-col items-center justify-between lg:py-4 py-3 rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden sm:shadow-none ${
           isSidebarOpen ? "sidebar-open shadow-md" : ""
         }`}
       >
@@ -119,7 +178,8 @@ export default function Dashboard() {
         </div>
 
         <div className="shadowDiv-t w-full h-2 min-h-2 z-2"></div>
-        <div className="w-full h-full flex flex-col md:gap-4 gap-2 lg:px-4 px-3 lg:py-4 py-3 overflow-y-auto z-1">
+
+        <div className="w-full h-full flex flex-col md:gap-4 gap-2 lg:px-4 px-3 lg:py-4 py-3 overflow-y-auto overflow-x-hidden z-1">
           {Array.from({ length: 10 }).map((_, index) => (
             <SimpleBtn
               key={index}
@@ -147,27 +207,27 @@ export default function Dashboard() {
         </div>
       </section>
 
-      {isSidebarOpen && (
+      {/* {isSidebarOpen && (
         <div
           className={`bgBlur fixed inset-0 md:hidden z-25 ${
             isSidebarOpen ? "sidebar-open" : ""
           }`}
           onClick={() => setIsSidebarOpen(false)}
         />
-      )}
+      )} */}
 
       <section className="w-full h-full flex flex-col lg:gap-6 md:gap-4 gap-2">
-        <section className="topbar w-full h-fit flex flex-row items-center justify-between md:gap-4 gap-2 lg:p-4 md:p-3 p-2 rounded-xl sm:rounded-3xl border border-solid border-black/[.08]">
-          <SimpleBtn
+        <section className="Topbar w-full h-fit flex flex-row items-center justify-between md:gap-4 gap-2 lg:p-4 md:p-3 p-2 rounded-xl sm:rounded-3xl border border-solid border-black/[.08]">
+          {/* <SimpleBtn
             text=""
             theme="light"
             width="lg:w-12 lg:min-w-12 w-10 min-w-10"
             padding="px-0 lg:px-5 px-3"
-            tailwind="md:hidden "
+            tailwind="md:hidden"
             textStyle="hidden"
             icon={<FiMenu />}
             onClick={() => setIsSidebarOpen((prev) => !prev)}
-          />
+          /> */}
 
           <div className="w-full h-fit flex flex-row items-center justify-end gap-4">
             <SimpleBtn
@@ -199,7 +259,7 @@ export default function Dashboard() {
               textStyle="hidden md:block"
               icon={<FiUserPlus />}
             />
-            <SimpleBtn
+            {/* <SimpleBtn
               text="Logout"
               theme="light"
               height="lg:h-12 lg:min-h-12 h-10 min-h-10"
@@ -208,7 +268,7 @@ export default function Dashboard() {
               textStyle="hidden md:block"
               icon={<FiLogOut />}
               onClick={doLogout}
-            />
+            /> */}
             <SimpleBtn
               text=""
               theme="light"
@@ -219,17 +279,55 @@ export default function Dashboard() {
           </div>
         </section>
 
-        <section className="maingrid w-full h-full flex flex-col rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden">
+        <section className="Events w-full min-h-fit flex flex-col rounded-xl sm:rounded-3xl border border-solid border-black/[.08] gap-4 overflow-hidden md:hidden">
+          <div className="w-full h-fit px-3 pt-4">
+            <SimpleBtn
+              icon={<FiPlus />}
+              text="New event"
+              theme="dark"
+              width="w-full"
+              tailwind=""
+              onClick={() => {
+                console.log("create new event");
+              }}
+            />
+          </div>
+
+          <div className="w-full h-fit pb-4 flex flex-row">
+            <div className="shadowDiv-t h-full w-2 min-w-2 z-2"></div>
+
+            <div
+              ref={scrollContainerRef}
+              className="w-full h-fit overflow-hidden overflow-x-auto"
+            >
+              <div className="h-fit w-fit flex flex-row xs:grid sm:grid-cols-3 grid-cols-2 grid-flow-row auto-rows-fr sm:gap-4 gap-2 px-2">
+                {displayedEvents.map((event, index) => (
+                  <SimpleBtn
+                    key={index}
+                    text={event.eventTitle}
+                    backgroundImage={event.coverImageUrl}
+                    theme="light"
+                    width="min-w-[158px]"
+                    tailwind="justify-start"
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="shadowDiv-b h-full w-2 min-w-2 z-2"></div>
+          </div>
+        </section>
+
+        <section className="MyCards w-full h-full flex flex-col rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden">
+          <h3 className="lg:px-4 px-3 my-2 flex flex-row items-center gap-2">
+            <FiImage className="text-[80%]" />
+            My cards
+          </h3>
+
           <div className="shadowDiv-t w-full h-2 z-[2]"></div>
-
-          <div className="w-full h-full flex flex-col md:gap-6 gap-4 lg:px-4 px-3 py-2 overflow-y-auto z-[1]">
+          <div className="w-full h-full flex flex-col md:gap-6 gap-4 lg:px-4 px-3 py-4 overflow-y-auto z-[1]">
             <section className="mb-4">
-              <h3 className="mb-4 flex flex-row items-center gap-2">
-                <FiImage className="text-[80%]" />
-                My cards
-              </h3>
-
-              <section className="myCards grid grid-rows-2 grid-flow-col auto-cols-fr md:gap-4 gap-2">
+              <section className="grid grid-rows-2 grid-flow-col auto-cols-fr md:gap-4 gap-2">
                 <SimpleCard
                   text="Create"
                   icon={<FiPlus />}
@@ -250,13 +348,19 @@ export default function Dashboard() {
                 ))}
               </section>
             </section>
+          </div>
+          <div className="shadowDiv-b w-full h-2 z-[2]"></div>
+        </section>
 
-            <section>
-              <h3 className="mb-4 flex flex-row items-center gap-2">
-                <FiGrid className="text-[80%]" />
-                Explore cards
-              </h3>
+        <section className="Marketplace w-full h-full flex flex-col rounded-xl sm:rounded-3xl border border-solid border-black/[.08] overflow-hidden">
+          <h3 className="lg:px-4 px-3 my-2 flex flex-row items-center gap-2">
+            <FiGrid className="text-[80%]" />
+            Explore cards
+          </h3>
 
+          <div className="shadowDiv-t w-full h-2 z-[2]"></div>
+          <div className="w-full h-full flex flex-col md:gap-6 gap-4 lg:px-4 px-3 py-4 overflow-y-auto z-[1]">
+            <section className="mb-4">
               <MasonryLayout
                 items={invitationCards}
                 calculateColumns={calculateColumns}
@@ -279,7 +383,6 @@ export default function Dashboard() {
               />
             </section>
           </div>
-
           <div className="shadowDiv-b w-full h-2 z-[2]"></div>
         </section>
       </section>

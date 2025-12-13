@@ -1,204 +1,60 @@
 {
   "events": [
     {
-      "_id": "6510d1b2c3d4e5f678901260",
-      "eventId": "A1B2C3D4E5",
-      "sender": "6510a1b2c3d4e5f678901234",
-      "eventTitle": "Ananya & Team: Product Launch",
-      "description": "Launch of the new Acme product line — invited partners and press.",
-      "coverImageUrl": "https://cdn.example.com/events/launch-cover.jpg",
-      "invitationCard": "6510c1b2c3d4e5f678901250",
-      "invitationMessage": "You're invited to our product launch. RSVP to join.",
-      "guests": [
-        {
-          "_id": "g_1",
-          "whatsappNumber": "+919812345678",
-          "guestType": "sender",
-          "senderRef": "6510a1b2c3d4e5f678901235",
-          "receiverRef": null,
-          "snapshot": {
-            "username": "raj_chaudhary",
-            "fullName": "Rajesh Chaudhary",
-            "profileImage": "https://cdn.example.com/profiles/raj.jpg"
-          },
-          "accepted": true,
-          "invitedAt": "2025-11-15T05:00:00.000Z",
-          "acceptedAt": "2025-11-16T11:20:00.000Z"
-        },
-        {
-          "_id": "g_2",
-          "whatsappNumber": "+919999888777",
-          "guestType": "receiver",
-          "senderRef": null,
-          "receiverRef": "6510b1b2c3d4e5f678901238",
-          "snapshot": {
-            "username": "sahana_roy",
-            "fullName": "Sahana Roy",
-            "profileImage": "https://cdn.example.com/profiles/sahana.jpg"
-          },
-          "accepted": true,
-          "invitedAt": "2025-11-15T05:01:00.000Z",
-          "acceptedAt": "2025-11-20T09:35:00.000Z"
-        },
-        {
-          "_id": "g_3",
-          "whatsappNumber": "+918000111222",
-          "guestType": "external",
-          "senderRef": null,
-          "receiverRef": null,
-          "snapshot": {
-            "username": null,
-            "fullName": null,
-            "profileImage": null
-          },
-          "accepted": false,
-          "invitedAt": "2025-11-15T05:02:00.000Z",
-          "acceptedAt": null
-        }
-      ],
-      "eventStartTime": "2025-12-05T10:00:00.000Z",
-      "eventEndTime": "2025-12-05T13:00:00.000Z",
-      "gallery": [
-        {
-          "_id": "img_1",
-          "uploaderType": "Sender",
-          "uploaderRef": "6510a1b2c3d4e5f678901235",
-          "imageUrl": "https://cdn.example.com/events/gallery/raj-stage.jpg",
-          "imageTitle": "Stage Setup",
-          "imageDescription": "Main stage before guests arrived",
-          "likeCount": 12,
-          "shareCount": 2,
-          "uploadedAt": "2025-11-16T12:00:00.000Z"
-        },
-        {
-          "_id": "img_2",
-          "uploaderType": "Receiver",
-          "uploaderRef": "6510b1b2c3d4e5f678901238",
-          "imageUrl": "https://cdn.example.com/events/gallery/sahana-photo.jpg",
-          "imageTitle": "Networking",
-          "imageDescription": "Attendees networking in the lobby",
-          "likeCount": 5,
-          "shareCount": 0,
-          "uploadedAt": "2025-11-20T10:00:00.000Z"
-        }
-      ],
-      "chatRoomId": "chat_evt_A1B2C3D4E5",
-      "archived": false,
-      "metadata": { "capacity": 150 },
-      "createdAt": "2025-11-15T05:00:00.000Z",
-      "updatedAt": "2025-11-20T10:00:00.000Z"
+      "eventTitle": "Event 1",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
     },
     {
-      "_id": "6510d1b2c3d4e5f678901261",
-      "eventId": "Z9Y8X7W6V5",
-      "sender": "6510a1b2c3d4e5f678901236",
-      "eventTitle": "Mira: Conference — London",
-      "description": "Quarterly business conference in London.",
-      "coverImageUrl": null,
-      "invitationCard": "6510c1b2c3d4e5f678901251",
-      "invitationMessage": "Join us for the quarterly review.",
-      "guests": [
-        {
-          "_id": "g_10",
-          "whatsappNumber": "+14155550123",
-          "guestType": "sender",
-          "senderRef": "6510a1b2c3d4e5f678901236",
-          "receiverRef": null,
-          "snapshot": {
-            "username": "mira.s",
-            "fullName": "Mira Shah",
-            "profileImage": "https://cdn.example.com/profiles/mira.png"
-          },
-          "accepted": true,
-          "invitedAt": "2025-09-12T07:00:00.000Z",
-          "acceptedAt": "2025-09-15T09:00:00.000Z"
-        },
-        {
-          "_id": "g_11",
-          "whatsappNumber": "+919777666555",
-          "guestType": "receiver",
-          "senderRef": null,
-          "receiverRef": "6510b1b2c3d4e5f678901241",
-          "snapshot": {
-            "username": null,
-            "fullName": "Rhea Das",
-            "profileImage": "https://cdn.example.com/profiles/rhea.jpg"
-          },
-          "accepted": false,
-          "invitedAt": "2025-09-12T07:05:00.000Z",
-          "acceptedAt": null
-        }
-      ],
-      "eventStartTime": "2025-11-30T09:00:00.000Z",
-      "eventEndTime": "2025-11-30T17:00:00.000Z",
-      "gallery": [],
-      "chatRoomId": "chat_evt_Z9Y8X7W6V5",
-      "archived": false,
-      "metadata": { "tag": "quarterly" },
-      "createdAt": "2025-09-12T07:00:00.000Z",
-      "updatedAt": "2025-11-01T07:00:00.000Z"
+      "eventTitle": "Event 2",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
     },
     {
-      "_id": "6510d1b2c3d4e5f678901262",
-      "eventId": "QWERTY1234",
-      "sender": "6510a1b2c3d4e5f678901237",
-      "eventTitle": "Vikram: Team Offsite",
-      "description": "Team offsite and team-building activities.",
-      "coverImageUrl": "https://cdn.example.com/events/offsite.jpg",
-      "invitationCard": null,
-      "invitationMessage": "All hands. Bring outdoor gear.",
-      "guests": [
-        {
-          "_id": "g_20",
-          "whatsappNumber": "+919888777666",
-          "guestType": "receiver",
-          "senderRef": null,
-          "receiverRef": "6510b1b2c3d4e5f678901239",
-          "snapshot": {
-            "username": "pranav_nair",
-            "fullName": "Pranav Nair",
-            "profileImage": "https://cdn.example.com/profiles/pranav.jpg"
-          },
-          "accepted": true,
-          "invitedAt": "2025-10-10T09:00:00.000Z",
-          "acceptedAt": "2025-10-20T08:30:00.000Z"
-        },
-        {
-          "_id": "g_21",
-          "whatsappNumber": "+919876543211",
-          "guestType": "external",
-          "senderRef": null,
-          "receiverRef": null,
-          "snapshot": {
-            "username": null,
-            "fullName": "External Guest",
-            "profileImage": null
-          },
-          "accepted": false,
-          "invitedAt": "2025-10-10T09:05:00.000Z",
-          "acceptedAt": null
-        }
-      ],
-      "eventStartTime": "2025-12-15T07:30:00.000Z",
-      "eventEndTime": "2025-12-16T16:30:00.000Z",
-      "gallery": [
-        {
-          "_id": "img_21",
-          "uploaderType": "Sender",
-          "uploaderRef": "6510a1b2c3d4e5f678901237",
-          "imageUrl": "https://cdn.example.com/events/offsite/sunset.jpg",
-          "imageTitle": "Sunset Hike",
-          "imageDescription": "Team sunset hike.",
-          "likeCount": 32,
-          "shareCount": 5,
-          "uploadedAt": "2025-10-21T18:00:00.000Z"
-        }
-      ],
-      "chatRoomId": "chat_evt_QWERTY1234",
-      "archived": true,
-      "metadata": { "location": "Lonavala" },
-      "createdAt": "2025-10-10T09:00:00.000Z",
-      "updatedAt": "2025-11-10T09:00:00.000Z"
+      "eventTitle": "Event 3",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
+    },
+    {
+      "eventTitle": "Event 4",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
+    },
+    {
+      "eventTitle": "Event 5",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
+    },
+    {
+      "eventTitle": "Event 6",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
+    },
+    {
+      "eventTitle": "Event 7",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
+    },
+    {
+      "eventTitle": "Event 8",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
+    },
+    {
+      "eventTitle": "Event 9",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
+    },
+    {
+      "eventTitle": "Event 10",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
+    },
+    {
+      "eventTitle": "Event 11",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
+    },
+    {
+      "eventTitle": "Event 12",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
+    },
+    {
+      "eventTitle": "Event 13",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
+    },
+    {
+      "eventTitle": "Event 14",
+      "coverImageUrl": "https://cdn.pixabay.com/photo/2021/03/23/22/00/eggs-6118730_1280.png"
     }
   ]
 }

@@ -13,15 +13,25 @@
   background: #fff;
 }
 
-.sidebar {
+.Sidebar {
   z-index: 30;
   position: relative;
-  width: 208px;
-  min-width: 208px;
+  min-width: 240px;
+  width: 240px;
+  /* width: 240px;
+  min-width: 240px;
   padding-top: 16px;
-  padding-bottom: 16px;
+  padding-bottom: 16px; */
   background: #fff;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  /* transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; */
+  transition: width 0.5s ease-in-out;
+}
+
+@media (width <=1024px) {
+  .Sidebar {
+    min-width: 208px;
+    width: 208px;
+  }
 }
 
 @media (width <=768px) {
@@ -39,25 +49,29 @@
     -webkit-backdrop-filter: blur(4px);
   }
 
-  .sidebar {
-    position: absolute;
+  .Sidebar {
+    /* position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     transform: translateX(-100%);
-    opacity: 0;
+    opacity: 0; */
   }
 
-  .sidebar.sidebar-open {
+  /* .Sidebar.sidebar-open {
     opacity: 1;
     transform: translateX(0);
-  }
+  } */
 }
 
-.topbar {
+.Topbar {
   z-index: 2;
 }
 
-.maingrid {
+.MyCards {
+  z-index: 1;
+}
+
+.Marketplace {
   z-index: 1;
 }
