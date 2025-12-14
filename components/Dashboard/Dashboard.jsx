@@ -255,7 +255,7 @@ export default function Dashboard() {
               icon={<LuCalendarDays />}
             />
             <SimpleBtn
-              text="Updates"
+              text="Notifications"
               theme="light"
               height="lg:h-12 lg:min-h-12 h-10 min-h-10"
               width="lg:w-[158px] lg:min-w-[158px] w-fit min-w-fit"

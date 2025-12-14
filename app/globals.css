@@ -43,9 +43,9 @@ body {
     padding-bottom: 24px;
   }
 }
+
 @media (width <=480px) {
   body {
-    /* min-height: fit-content; */
     padding: 14px;
     padding-bottom: 24px;
   }
